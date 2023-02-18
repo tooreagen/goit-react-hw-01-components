@@ -1,25 +1,26 @@
+import { List, ListItem, Status, Name } from './FriendList.styled';
+
 export const FriendList = ({ friends }) => {
   return (
-    <ul className="friend-list">
+    <List>
       {friends.map(item => {
         return (
-          <li key={item.id} className="item">
+          <ListItem key={item.id}>
             {item.isOnline ? (
-              <span className="status">GREEN</span>
+              <Status color={'green'}></Status>
             ) : (
-              <span className="status">RED</span>
+              <Status color={'red'}></Status>
             )}
-
             <img
               className="avatar"
               src={item.avatar}
               alt="User avatar"
               width="48"
             />
-            <p className="name">{item.name}</p>
-          </li>
+            <Name>{item.name}</Name>
+          </ListItem>
         );
       })}
-    </ul>
+    </List>
   );
 };
